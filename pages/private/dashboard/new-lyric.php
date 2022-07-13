@@ -21,20 +21,20 @@
     <!-- Input Image -->
     <div class="col-12 col-md-8">
       <label for="gambar" class="form-label">Sampul</label>
-      <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewImg(event)" value="<?= $image; ?>" <?php if(isset($_POST['translation'])) echo 'disabled'; ?>  >
+      <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewImg(event)" value="<?= $image; ?>" <?php if (isset($_POST['translation'])) echo 'disabled'; ?>>
     </div>
 
     <!-- Input Title -->
     <div class="col-12 col-md-8">
       <label for="title" class="form-label">Judul</label>
-      <input type="text" class="form-control" placeholder="Judul" id="title" name="title" value="<?= $title; ?>" <?php if(isset($_POST['translation'])) echo 'disabled'; ?>>
+      <input type="text" class="form-control" placeholder="Judul" id="title" name="title" value="<?= $title; ?>" <?php if (isset($_POST['translation'])) echo 'disabled'; ?>>
     </div>
 
     <!-- Input Language -->
     <div class="col-12 col-md-8">
       <label for="bahasa" class="form-label">Bahasa</label>
       <select class="form-select" id="bahasa" name="bahasa" aria-label="pilih bahasa" value="<?= $lang; ?>">
-        <option selected>Pilih bahasa</option>
+        <option selected disabled value="">Pilih bahasa</option>
         <?php foreach ($languages as $language) : ?>
           <option value="<?= $language['lang']; ?>" <?= ($lang == $language['lang']) ? 'selected' : ''; ?>><?= $language['lang']; ?></option>
         <?php endforeach; ?>
@@ -47,15 +47,25 @@
       <textarea class="form-control" placeholder="Lirik lagu" name="lirik" id="lirik" style="min-height: 100px;"><?= $lyric; ?></textarea>
     </div>
 
-    <!-- Submit Button -->
+    <!-- Content Id -->
+    <input type="hidden" id="contentId" name="contentId" value="<?= $contentId; ?>">
+
+    <!-- Button -->
     <div class="justify-content-start">
       <?php if (isset($_POST['edit'])) : ?>
         <!-- Edit Button -->
-        <input type="hidden" id="contentId" name="contentId" value="<?= $contentId; ?>">
         <button type="submit" class="btn btn-primary" name="edit-content">Simpan Perubahan</button>
         <a href="?p=stricted" class="mx-2">
           <button type="button" class="btn btn-secondary">Batal</button>
         </a>
+
+      <?php elseif (isset($_POST['translation'])) : ?>
+        <!-- Translation Button -->
+        <button type="submit" class="btn btn-primary" name="tl">Tambah Terjemahan</button>
+        <a href="?p=stricted" class="mx-2">
+          <button type="button" class="btn btn-secondary">Batal</button>
+        </a>
+
       <?php else : ?>
 
         <!-- Submit Button -->

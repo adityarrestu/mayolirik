@@ -6,18 +6,21 @@
     $content = query("SELECT * FROM content WHERE contentId = '$contentId'");
 
     $title = $content[0]['title'];
-    $image = $content[0]['image'];
     $lang = $content[0]['lang'];
     $lyric = $content[0]['lyric'];
-
+    $image = $content[0]['image'];
+    
   }
-
+  
   if(isset($_POST['edit-content'])) {
-
+    
     $contentId = $_POST['contentId'];
     $title = stripslashes($_POST['title']);
+    $title = mysqli_real_escape_string($conn, $title);
     $lang = stripslashes($_POST['bahasa']);
+    $lang = mysqli_real_escape_string($conn, $lang);
     $lyric = stripslashes($_POST['lirik']);
+    $lyric = mysqli_real_escape_string($conn, $lyric);
     
     $gambar = query("SELECT image FROM content WHERE contentId = '$contentId'")[0]['image'];
 
@@ -27,7 +30,6 @@
     } else {
       $image = $gambar;      
     }
-    $status = "di sini";
 
     if(!empty($title) &&
       !empty($lang) &&
