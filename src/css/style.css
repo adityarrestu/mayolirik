@@ -1,0 +1,29 @@
+#vh-80 {
+  min-height: 80vh;
+}
+
+.vh-100-css {
+  min-height: 100vh;
+}
+
+#sidemenu {
+  min-height: 100vh;
+  width: 15rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s; 
+}
+
+#main {
+  margin-left: 15rem;
+}
+
+#card-img {
+  height: 10rem;
+  object-fit: cover;
+}
