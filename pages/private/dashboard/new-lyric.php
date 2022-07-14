@@ -9,31 +9,36 @@
 <!-- New Content Form-->
 <form action="" method="POST" class="my-2 px-2" enctype="multipart/form-data">
   <p class="fs-4">
-    <?php if (isset($_POST['edit'])) : ?>
+    <?php if(isset($_POST['edit']) || isset($_POST['edit-tl'])) : ?>
       Edit
     <?php else : ?>
       New
     <?php endif; ?>
-    Content
+    
+    <?php if(isset($_POST['translation']) || isset($_POST['edit-tl'])) : ?>
+      Translation
+    <?php else : ?>
+      Content
+    <?php endif; ?>
   </p>
 
   <div class="row row-cols-1 g-3">
     <!-- Input Image -->
     <div class="col-12 col-md-8">
       <label for="gambar" class="form-label">Sampul</label>
-      <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewImg(event)" value="<?= $image; ?>" <?php if (isset($_POST['translation'])) echo 'disabled'; ?>>
+      <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewImg(event)" value="<?= $image; ?>" <?php if (isset($_POST['translation']) || isset($_POST['edit-tl'])) echo 'disabled'; ?>>
     </div>
 
     <!-- Input Title -->
     <div class="col-12 col-md-8">
       <label for="title" class="form-label">Judul</label>
-      <input type="text" class="form-control" placeholder="Judul" id="title" name="title" value="<?= $title; ?>" <?php if (isset($_POST['translation'])) echo 'disabled'; ?>>
+      <input type="text" class="form-control" placeholder="Judul" id="title" name="title" value="<?= $title; ?>" <?php if (isset($_POST['translation']) || isset($_POST['edit-tl'])) echo 'disabled'; ?>>
     </div>
 
     <!-- Input Language -->
     <div class="col-12 col-md-8">
       <label for="bahasa" class="form-label">Bahasa</label>
-      <select class="form-select" id="bahasa" name="bahasa" aria-label="pilih bahasa" value="<?= $lang; ?>">
+      <select class="form-select" id="bahasa" name="bahasa" aria-label="pilih bahasa" value="<?= $lang; ?>" <?php if (isset($_POST['edit-tl'])) echo 'disabled'; ?>>
         <option selected disabled value="">Pilih bahasa</option>
         <?php foreach ($languages as $language) : ?>
           <option value="<?= $language['lang']; ?>" <?= ($lang == $language['lang']) ? 'selected' : ''; ?>><?= $language['lang']; ?></option>
@@ -62,6 +67,14 @@
       <?php elseif (isset($_POST['translation'])) : ?>
         <!-- Translation Button -->
         <button type="submit" class="btn btn-primary" name="tl">Tambah Terjemahan</button>
+        <a href="?p=stricted" class="mx-2">
+          <button type="button" class="btn btn-secondary">Batal</button>
+        </a>
+
+      <?php elseif (isset($_POST['edit-tl'])) : ?>
+        <!-- Edit Translation Button -->
+        <input type="hidden" id="tlId" name="tlId" value="<?= $tlId; ?>">
+        <button type="submit" class="btn btn-primary" name="edit-translation">Edit Terjemahan</button>
         <a href="?p=stricted" class="mx-2">
           <button type="button" class="btn btn-secondary">Batal</button>
         </a>
