@@ -12,9 +12,9 @@
   <?php foreach($contents as $content) : ?>
     <div class="col">
       <a href="index.php?p=lyric&i=<?= $content['contentId']; ?>" class="text-decoration-none text-dark">
-        <div class="card pb-3">
+        <div class="card mb-3">
           <img src="./src/img/<?= $content['image']; ?>" id="card-img" alt="" class="card-img-top img-fluid">
-          <p class="fw-bold m-2"><?= $content['title']; ?></p>
+          <p class="fw-bold m-2" style="height: 3.2rem;  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"><?= $content['title']; ?></p>
         </div>
       </a>
     </div>

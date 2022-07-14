@@ -1,13 +1,13 @@
 <?php
-$contentId = $_GET['i'];
+  $contentId = $_GET['i'];
 
-$content = query("SELECT * FROM content WHERE contentId = '$contentId'");
-$title = $content[0]['title'];
+  $content = query("SELECT * FROM content WHERE contentId = '$contentId'");
+  $title = $content[0]['title'];
 
-$lyricRmj = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Jepang - Romaji'");
-$lyricKnj = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Jepang - Kanji'");
-$lyricIna = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Indonesia'");
-$lyricEn = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Inggris'");
+  $lyricRmj = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Romaji'");
+  $lyricKnj = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Jepang - Kanji'");
+  $lyricIna = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Indonesia'");
+  $lyricEn = query("SELECT lyric FROM content WHERE title = '$title' AND lang = 'Inggris'");
 ?>
 
 <head>

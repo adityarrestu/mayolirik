@@ -5,6 +5,7 @@ include './functions/input-lyric.php';
 include './functions/edit-content.php';
 include './functions/delete-content.php';
 include './functions/translation.php';
+include './functions/edit-tl.php';
 
 $languages =  query("SELECT * FROM lang");
 $contents = query("SELECT * FROM content");

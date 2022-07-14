@@ -6,7 +6,7 @@
           <!-- Image Content -->
           <img src="./src/img/<?= $content['image']; ?>" id="card-img" alt="" class="card-img-top img-fluid">
           <!-- Title Content -->
-          <p class="fw-bold m-2" style="height: 3.3rem;"><?= $content['title']; ?></p>
+          <p class="fw-bold m-2" style="height: 3.2rem;  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"><?= $content['title']; ?></p>
         </a>
 
         <!-- Option Button -->
