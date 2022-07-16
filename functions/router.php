@@ -4,20 +4,31 @@ function route($page) {
   if($cek == '') {
     $route = 'public/beranda.php';
   }
-  if($cek == 'beranda') {
+  else if($cek == 'beranda') {
     $route = 'public/beranda.php';
   }
-  if($cek == 'lyric') {
+  else if($cek == 'lyric') {
     $route = 'public/lyric.php';
   }
-  if($cek == 'stricted') {
-    $route = 'private/index.php';
+  else if($cek == 'about') {
+    $route = 'public/about.php';
   }
-  if($cek == 'stricted') {
-    $route = 'private/index.php';
+  else if($cek == 'request') {
+    $route = 'public/request.php';
   }
-  if($cek == 'dashboard') {
-    $route = 'index.php';
+  else if($cek == 'restricted') {
+    if($_SESSION['login'] == true) {
+      $route = 'private/index.php';
+    } else {
+      echo '
+        <script>
+          window.location = "pages/login.php";
+        </script>
+      ';
+    }
+  }
+  else {
+    $route = 'public/beranda.php';
   }
 
   return $route;

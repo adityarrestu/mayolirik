@@ -9,7 +9,7 @@
     <div class="col">
       <a href="index.php?p=lyric&i=<?= $content['contentId']; ?>" class="text-decoration-none text-dark">
         <div class="card">
-          <p class="m-2"><?= $content['title']; ?></p>
+          <p class="m-2" style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"><?= $content['title']; ?></p>
         </div>
       </a>
     </div>

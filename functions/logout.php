@@ -1,6 +1,8 @@
 <?php 
   session_start();
   $_SESSION = [];
+  $_SESSION['login'] = false;
+  $_SESSION['username'] = '';
   session_unset();
   session_destroy();
 
