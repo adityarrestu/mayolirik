@@ -61,6 +61,9 @@ if (isset($_SESSION['login'])) {
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
           <li>
+            <a class="dropdown-item" href="?p=request-list">Request List</a>
+          </li>
+          <li>
             <a class="dropdown-item" href="./functions/logout.php">Logout</a>
           </li>
         </ul>

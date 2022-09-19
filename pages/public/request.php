@@ -14,16 +14,15 @@
       $request = mysqli_query($conn, $query);
 
       if($request) {
-        $status = "";
+        $status = "Request berhasil dikirim";
 
       } else {
-        $error = "";
+        $error = "Terjadi kesalahan, request gagal dikirim!";
       }
 
     } 
   }
 
-  var_dump($_SESSION['login'])
 ?>
 
 <head>
@@ -32,6 +31,19 @@
 
 <form action="" method="POST" class="my-3 px-2">
   <p class="fs-3">Request Lirik</p>
+  <!-- Status Notification -->
+  <?php if ($status != '') : ?>
+    <div class="alert alert-success" role="alert">
+      <?= $status; ?>
+    </div>
+  <?php endif; ?>
+
+  <!-- Error Notification -->
+  <?php if($error != '') : ?>
+    <div class="alert alert-danger" role="alert">
+      <?= $error; ?>
+    </div>
+  <?php endif; ?>
 
   <div class="row row-cols-1 g-3">
     <div class="col-12 col-md-8">

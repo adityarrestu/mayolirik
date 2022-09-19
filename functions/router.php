@@ -26,6 +26,16 @@ function route($page) {
         </script>
       ';
     }
+  } else if($cek == 'request-list') {
+    if($_SESSION['login'] == true) {
+      $route = 'private/request-list.php';
+    } else {
+      echo '
+        <script>
+          window.location = "pages/login.php";
+        </script>
+      ';
+    }
   }
   else {
     $route = 'public/beranda.php';

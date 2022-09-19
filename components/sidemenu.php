@@ -103,7 +103,7 @@
     </li>
     <?php if (isset($_SESSION['username'])) : ?>
       <li class="nav-item">
-        <a class="nav-link text-dark text-nowrap" href="?p=stricted">
+        <a class="nav-link text-dark text-nowrap" href="?p=restricted">
           <i class='bx bxs-dashboard me-3'></i>
           Dashboard
         </a>
